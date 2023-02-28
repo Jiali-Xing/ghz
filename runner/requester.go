@@ -26,6 +26,8 @@ import (
 
 	// To register the xds resolvers and balancers.
 	_ "google.golang.org/grpc/xds"
+
+	"github.com/tgiannoukos/charon"
 )
 
 // Max size of the buffer of result channel.
@@ -347,6 +349,16 @@ func (b *Requester) newClientConn(withStatsHandler bool) (*grpc.ClientConn, erro
 		grpcServiceConfig := fmt.Sprintf(`{"loadBalancingPolicy":"%s"}`, b.config.lbStrategy)
 		opts = append(opts, grpc.WithDefaultServiceConfig(grpcServiceConfig))
 	}
+
+	const initialPrice = 0
+	priceTable := charon.NewPriceTable(
+		initialPrice,
+		sync.Map{},
+	)
+
+	opts = append(opts,
+		grpc.WithUnaryInterceptor(priceTable.UnaryInterceptorEnduser),
+	)
 
 	// create client connection
 	return grpc.DialContext(ctx, b.config.host, opts...)
