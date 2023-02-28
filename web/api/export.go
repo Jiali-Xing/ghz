@@ -8,8 +8,8 @@ import (
 	"time"
 
 	"github.com/alecthomas/template"
-	"github.com/bojand/ghz/runner"
-	"github.com/bojand/ghz/web/model"
+	"github.com/Jiali-Xing/ghz/runner"
+	"github.com/Jiali-Xing/ghz/web/model"
 	"github.com/labstack/echo"
 )
 

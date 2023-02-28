@@ -17,7 +17,7 @@ RUN \
     --mount=from=osmap,source=/os,target=/os \
     set -ux \
  && apk add --no-cache curl \
- && export url=https://github.com/bojand/ghz/releases \
+ && export url=https://github.com/Jiali-Xing/ghz/releases \
  && export arch=x86_64 \
  && export VERSION=$( ( curl -#fSLo /dev/null -w '%{url_effective}' $url/latest && echo ) | while read -r x; do basename $x; done) \
  && curl -#fSLo exe.tar.gz $url/download/$VERSION/ghz-$(cat /os)-$arch.tar.gz \

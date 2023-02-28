@@ -131,17 +131,17 @@ class Index extends React.Component {
 
     const Badges = () => (
       <div className="productShowcaseSection" style={{ textAlign: 'center' }}>
-          <a href={"https://github.com/bojand/ghz/releases/latest"}>
-            <img src={"https://img.shields.io/github/release/bojand/ghz.svg?style=flat-square"} alt={"Release"} />
+          <a href={"https://github.com/Jiali-Xing/ghz/releases/latest"}>
+            <img src={"https://img.shields.io/github/release/Jiali-Xing/ghz.svg?style=flat-square"} alt={"Release"} />
           </a>
-          <a href={"https://github.com/bojand/ghz/actions?workflow=build"} style={{ margin: '5px' }}>
-            <img src={"https://github.com/bojand/ghz/workflows/build/badge.svg"} alt={"Build status"} />
+          <a href={"https://github.com/Jiali-Xing/ghz/actions?workflow=build"} style={{ margin: '5px' }}>
+            <img src={"https://github.com/Jiali-Xing/ghz/workflows/build/badge.svg"} alt={"Build status"} />
           </a>
-          <a href={"https://goreportcard.com/report/github.com/bojand/ghz"}>
-            <img src={"https://goreportcard.com/badge/github.com/bojand/ghz?style=flat-square"} alt={"Go Report Card"} />
+          <a href={"https://goreportcard.com/report/github.com/Jiali-Xing/ghz"}>
+            <img src={"https://goreportcard.com/badge/github.com/Jiali-Xing/ghz?style=flat-square"} alt={"Go Report Card"} />
           </a>
-          <a href={"https://raw.githubusercontent.com/bojand/ghz/master/LICENSE"} style={{ margin: '5px' }}>
-            <img src={"https://img.shields.io/github/license/bojand/ghz.svg?style=flat-square"} alt={"License"} />
+          <a href={"https://raw.githubusercontent.com/Jiali-Xing/ghz/master/LICENSE"} style={{ margin: '5px' }}>
+            <img src={"https://img.shields.io/github/license/Jiali-Xing/ghz.svg?style=flat-square"} alt={"License"} />
           </a>
           <a href={"https://www.paypal.me/bojandj"}>
             <img src={"https://img.shields.io/badge/Donate-PayPal-green.svg?style=flat-square"} alt={"Donate"} />

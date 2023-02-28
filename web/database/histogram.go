@@ -1,7 +1,7 @@
 package database
 
 import (
-	"github.com/bojand/ghz/web/model"
+	"github.com/Jiali-Xing/ghz/web/model"
 )
 
 // CreateHistogram creates a new report

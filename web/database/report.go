@@ -3,7 +3,7 @@ package database
 import (
 	"strconv"
 
-	"github.com/bojand/ghz/web/model"
+	"github.com/Jiali-Xing/ghz/web/model"
 )
 
 // FindReportByID gets the report by id
