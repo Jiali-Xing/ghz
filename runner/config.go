@@ -69,6 +69,7 @@ type Config struct {
 	SkipFirst             uint              `json:"skipFirst" toml:"skipFirst" yaml:"skipFirst"`
 	CName                 string            `json:"cname" toml:"cname" yaml:"cname"`
 	Authority             string            `json:"authority" toml:"authority" yaml:"authority"`
+	Charon                bool              `json:"charon,omitempty" toml:"charon,omitempty" yaml:"charon,omitempty"`
 	Insecure              bool              `json:"insecure,omitempty" toml:"insecure,omitempty" yaml:"insecure,omitempty"`
 	N                     uint              `json:"total" toml:"total" yaml:"total" default:"200"`
 	Async                 bool              `json:"async,omitempty" toml:"async,omitempty" yaml:"async,omitempty"`

@@ -49,6 +49,9 @@ type RunConfig struct {
 	enableCompression  bool
 	defaultCallOptions []grpc.CallOption
 
+	// Interceptors for overload control
+	charon bool
+
 	// security settings
 	creds      credentials.TransportCredentials
 	cacert     string
@@ -365,6 +368,17 @@ func WithRootCertificate(cert string) Option {
 		cert = strings.TrimSpace(cert)
 
 		o.cacert = cert
+
+		return nil
+	}
+}
+
+// WithCharon is true if we decide to use charon on client side as the interceptor.
+//
+// WithCharon(false)
+func WithCharon(charon bool) Option {
+	return func(o *RunConfig) error {
+		o.charon = charon
 
 		return nil
 	}
@@ -1173,6 +1187,7 @@ func fromConfig(cfg *Config) []Option {
 		WithServerNameOverride(cfg.CName),
 		WithSkipTLSVerify(cfg.SkipTLSVerify),
 		WithSkipFirst(cfg.SkipFirst),
+		WithCharon(cfg.Charon),
 		WithInsecure(cfg.Insecure),
 		WithAuthority(cfg.Authority),
 		WithConcurrency(cfg.C),

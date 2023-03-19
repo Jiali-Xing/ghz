@@ -350,15 +350,17 @@ func (b *Requester) newClientConn(withStatsHandler bool) (*grpc.ClientConn, erro
 		opts = append(opts, grpc.WithDefaultServiceConfig(grpcServiceConfig))
 	}
 
-	const initialPrice = 0
-	priceTable := charon.NewPriceTable(
-		initialPrice,
-		sync.Map{},
-	)
+	if b.config.charon {
+		const initialPrice = 0
+		priceTable := charon.NewPriceTable(
+			initialPrice,
+			sync.Map{},
+		)
 
-	opts = append(opts,
-		grpc.WithUnaryInterceptor(priceTable.UnaryInterceptorEnduser),
-	)
+		opts = append(opts,
+			grpc.WithUnaryInterceptor(priceTable.UnaryInterceptorEnduser),
+		)
+	}
 
 	// create client connection
 	return grpc.DialContext(ctx, b.config.host, opts...)
