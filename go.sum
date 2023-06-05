@@ -935,8 +935,6 @@ github.com/tenntenn/text/transform v0.0.0-20200319021203-7eef512accb3 h1:f+jULpR
 github.com/tenntenn/text/transform v0.0.0-20200319021203-7eef512accb3/go.mod h1:ON8b8w4BN/kE1EOhwT0o+d62W65a6aPw1nouo9LMgyY=
 github.com/tetafro/godot v1.4.11 h1:BVoBIqAf/2QdbFmSwAWnaIqDivZdOV0ZRwEm6jivLKw=
 github.com/tetafro/godot v1.4.11/go.mod h1:LR3CJpxDVGlYOWn3ZZg1PgNZdTUvzsZWu8xaEohUpn8=
-github.com/tgiannoukos/charon v0.0.0-20230228001233-12e23e17d9de h1:h/+inIDR/W3keFIc2/H513dnliXt1JlAffyS+GaY8HM=
-github.com/tgiannoukos/charon v0.0.0-20230228001233-12e23e17d9de/go.mod h1:lu/OXbfu3ECX3/PBDtZnWvyJoyC57nLxm4iRu0XFlZU=
 github.com/tgiannoukos/charon v0.0.0-20230602002458-e1301eaa4ed3 h1:QWikJhw47wyew3HipTnWShWYcTnbsIFN/dHVUIpE1NA=
 github.com/tgiannoukos/charon v0.0.0-20230602002458-e1301eaa4ed3/go.mod h1:lu/OXbfu3ECX3/PBDtZnWvyJoyC57nLxm4iRu0XFlZU=
 github.com/timakin/bodyclose v0.0.0-20200424151742-cb6215831a94/go.mod h1:Qimiffbc6q9tBWlVV6x0P9sat/ao1xEkREYPPj9hphk=
