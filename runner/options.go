@@ -50,7 +50,8 @@ type RunConfig struct {
 	defaultCallOptions []grpc.CallOption
 
 	// Interceptors for overload control
-	charon bool
+	charon        bool
+	charonOptions map[string]interface{}
 
 	// security settings
 	creds      credentials.TransportCredentials
@@ -379,6 +380,17 @@ func WithRootCertificate(cert string) Option {
 func WithCharon(charon bool) Option {
 	return func(o *RunConfig) error {
 		o.charon = charon
+
+		return nil
+	}
+}
+
+// WithCharonOptions specifies the charon options for the client
+//
+//	WithCharonOptions(map[string]interface{}{"key": "value"})
+func WithCharonOptions(options map[string]interface{}) Option {
+	return func(o *RunConfig) error {
+		o.charonOptions = options
 
 		return nil
 	}
