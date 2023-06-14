@@ -24,7 +24,7 @@ require (
 	github.com/prometheus/common v0.32.1
 	github.com/rakyll/statik v0.1.7
 	github.com/stretchr/testify v1.8.1
-	github.com/tgiannoukos/charon v0.0.0-20230614194740-4e53d053a3b5
+	github.com/tgiannoukos/charon v0.0.0-20230614194950-bb3351f360a2
 	go.uber.org/multierr v1.9.0
 	go.uber.org/zap v1.24.0
 	golang.org/x/net v0.5.0
