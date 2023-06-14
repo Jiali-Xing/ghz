@@ -1067,6 +1067,8 @@ github.com/tgiannoukos/charon v0.0.0-20230614203143-78e03984fb59 h1:t6h8SlfP8ibt
 github.com/tgiannoukos/charon v0.0.0-20230614203143-78e03984fb59/go.mod h1:lu/OXbfu3ECX3/PBDtZnWvyJoyC57nLxm4iRu0XFlZU=
 github.com/tgiannoukos/charon v0.0.0-20230614203516-d001f16f865c h1:iy0pZ/3mfUJxciTIxnlck8/g9gyuxGraa4o8ZYZLc8c=
 github.com/tgiannoukos/charon v0.0.0-20230614203516-d001f16f865c/go.mod h1:lu/OXbfu3ECX3/PBDtZnWvyJoyC57nLxm4iRu0XFlZU=
+github.com/tgiannoukos/charon v0.0.0-20230614204044-35ac58730ba8 h1:T3leA/H9XTLVgckDDCkaqBuuaIcHVk1I0f3isphvq0Q=
+github.com/tgiannoukos/charon v0.0.0-20230614204044-35ac58730ba8/go.mod h1:lu/OXbfu3ECX3/PBDtZnWvyJoyC57nLxm4iRu0XFlZU=
 github.com/timakin/bodyclose v0.0.0-20200424151742-cb6215831a94/go.mod h1:Qimiffbc6q9tBWlVV6x0P9sat/ao1xEkREYPPj9hphk=
 github.com/timakin/bodyclose v0.0.0-20210704033933-f49887972144 h1:kl4KhGNsJIbDHS9/4U9yQo1UcPQM0kOMJHn29EoH/Ro=
 github.com/timakin/bodyclose v0.0.0-20210704033933-f49887972144/go.mod h1:Qimiffbc6q9tBWlVV6x0P9sat/ao1xEkREYPPj9hphk=
