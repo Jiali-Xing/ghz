@@ -351,8 +351,9 @@ func (b *Requester) newClientConn(withStatsHandler bool) (*grpc.ClientConn, erro
 	}
 
 	if b.config.charon {
-		callGraph := make(map[string]interface{})
-		callGraph["echo"] = "50051"
+		callGraph := make(map[string][]string)
+		// call graph pointt ot the entrance point of the call graph
+		callGraph["echo"] = []string{b.config.charonEntrypoint}
 
 		priceTable := charon.NewCharon(
 			"client",
