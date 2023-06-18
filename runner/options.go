@@ -386,7 +386,7 @@ func WithCharon(charon bool) Option {
 	}
 }
 
-func withCharonEntry(entry string) Option {
+func WithCharonEntry(entry string) Option {
 	return func(o *RunConfig) error {
 		o.charonEntrypoint = entry
 
