@@ -2,7 +2,6 @@ package runner
 
 import (
 	"context"
-	"fmt"
 	"sync"
 
 	"google.golang.org/grpc/stats"
@@ -42,11 +41,6 @@ func (c *statsHandler) HandleRPC(ctx context.Context, rs stats.RPCStats) {
 		c.lock.RUnlock()
 
 		if !ign {
-			// extract the Trailer metadata.MD from rs and print it
-			metadata := rs.Trailer
-			for k, v := range metadata {
-				fmt.Printf("Trailer: %s: %s\n", k, v)
-			}
 
 			duration := rs.EndTime.Sub(rs.BeginTime)
 
