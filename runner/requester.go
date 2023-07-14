@@ -278,7 +278,7 @@ func (b *Requester) closeClientConns() {
 	}
 
 	for _, cc := range b.conns {
-		ctx, cancel := context.WithTimeout(context.Background(), time.Duration(time.Second*10))
+		ctx, cancel := context.WithTimeout(context.Background(), time.Duration(time.Second*1000))
 		defer cancel()
 
 		shutdownCh := connectionOnState(ctx, cc, connectivity.Shutdown)
