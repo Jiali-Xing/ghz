@@ -53,6 +53,7 @@ type RunConfig struct {
 	charon           bool
 	charonEntrypoint string
 	charonOptions    map[string]interface{}
+	method           string
 
 	// security settings
 	creds      credentials.TransportCredentials
@@ -400,6 +401,14 @@ func WithCharonEntry(entry string) Option {
 func WithCharonOptions(options map[string]interface{}) Option {
 	return func(o *RunConfig) error {
 		o.charonOptions = options
+
+		return nil
+	}
+}
+
+func WithMethod(method string) Option {
+	return func(o *RunConfig) error {
+		o.method = method
 
 		return nil
 	}
