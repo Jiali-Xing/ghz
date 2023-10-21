@@ -20,6 +20,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 
+	bw "github.com/Jiali-Xing/breakwater-grpc/breakwater"
 	humanize "github.com/dustin/go-humanize"
 )
 
@@ -50,10 +51,11 @@ type RunConfig struct {
 	defaultCallOptions []grpc.CallOption
 
 	// Interceptors for overload control
-	charon           bool
+	interceptor      string
 	charonEntrypoint string
 	charonOptions    map[string]interface{}
 	method           string
+	bwParams         bw.BWParameters
 
 	// security settings
 	creds      credentials.TransportCredentials
@@ -376,18 +378,18 @@ func WithRootCertificate(cert string) Option {
 	}
 }
 
-// WithCharon is true if we decide to use charon on client side as the interceptor.
+// WithInterceptor is true if we decide to use charon on client side as the interceptor.
 //
-// WithCharon(false)
-func WithCharon(charon bool) Option {
+// WithInterceptor(false)
+func WithInterceptor(interceptor string) Option {
 	return func(o *RunConfig) error {
-		o.charon = charon
+		o.interceptor = interceptor
 
 		return nil
 	}
 }
 
-func WithCharonEntry(entry string) Option {
+func WithInterceptorEntry(entry string) Option {
 	return func(o *RunConfig) error {
 		o.charonEntrypoint = entry
 
@@ -401,6 +403,14 @@ func WithCharonEntry(entry string) Option {
 func WithCharonOptions(options map[string]interface{}) Option {
 	return func(o *RunConfig) error {
 		o.charonOptions = options
+
+		return nil
+	}
+}
+
+func WithBreakwaterOptions(options bw.BWParameters) Option {
+	return func(o *RunConfig) error {
+		o.bwParams = options
 
 		return nil
 	}
@@ -1217,7 +1227,7 @@ func fromConfig(cfg *Config) []Option {
 		WithServerNameOverride(cfg.CName),
 		WithSkipTLSVerify(cfg.SkipTLSVerify),
 		WithSkipFirst(cfg.SkipFirst),
-		WithCharon(cfg.Charon),
+		WithInterceptor(cfg.Interceptor),
 		WithInsecure(cfg.Insecure),
 		WithAuthority(cfg.Authority),
 		WithConcurrency(cfg.C),

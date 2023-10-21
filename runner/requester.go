@@ -27,6 +27,7 @@ import (
 	// To register the xds resolvers and balancers.
 	_ "google.golang.org/grpc/xds"
 
+	bw "github.com/Jiali-Xing/breakwater-grpc/breakwater"
 	"github.com/tgiannoukos/charon"
 )
 
@@ -350,7 +351,7 @@ func (b *Requester) newClientConn(withStatsHandler bool) (*grpc.ClientConn, erro
 		opts = append(opts, grpc.WithDefaultServiceConfig(grpcServiceConfig))
 	}
 
-	if b.config.charon {
+	if b.config.interceptor == "charon" {
 		callGraph := make(map[string][]string)
 		// call graph point to the entrance point of the call graph
 		methodName := b.config.method
@@ -364,6 +365,11 @@ func (b *Requester) newClientConn(withStatsHandler bool) (*grpc.ClientConn, erro
 
 		opts = append(opts,
 			grpc.WithUnaryInterceptor(priceTable.UnaryInterceptorEnduser),
+		)
+	} else if b.config.interceptor == "breakwater" {
+		breakwater := bw.InitBreakwater(b.config.bwParams)
+		opts = append(opts,
+			grpc.WithUnaryInterceptor(breakwater.UnaryInterceptorClient),
 		)
 	}
 
