@@ -36,6 +36,8 @@ require (
 	google.golang.org/protobuf v1.31.0
 )
 
+require google.golang.org/genproto/googleapis/api v0.0.0-20230726155614-23370e0ffb3e // indirect
+
 require (
 	4d63.com/gochecknoglobals v0.1.0 // indirect
 	cloud.google.com/go/compute v1.23.0 // indirect
