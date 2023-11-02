@@ -85,6 +85,8 @@ github.com/Jiali-Xing/breakwater-grpc v0.0.0-20231101192924-3632cf3e5e8f h1:ICxR
 github.com/Jiali-Xing/breakwater-grpc v0.0.0-20231101192924-3632cf3e5e8f/go.mod h1:SUTpZJP1Z/4pgNXPURHzgXkElVpnPSVmLd84uMZiWEs=
 github.com/Jiali-Xing/breakwater-grpc v0.0.0-20231102030537-b945a315e08e h1:TMiyCaee1ss21Vuh4uD0HqYFWRs1DfgW+P30yapaAw8=
 github.com/Jiali-Xing/breakwater-grpc v0.0.0-20231102030537-b945a315e08e/go.mod h1:SUTpZJP1Z/4pgNXPURHzgXkElVpnPSVmLd84uMZiWEs=
+github.com/Jiali-Xing/breakwater-grpc v0.0.0-20231102203441-3f8ebb4b58d6 h1:dKSh9/rnCefBy1Ub7Avc1wLtSmysdSYnDpiGpnCM/K8=
+github.com/Jiali-Xing/breakwater-grpc v0.0.0-20231102203441-3f8ebb4b58d6/go.mod h1:SUTpZJP1Z/4pgNXPURHzgXkElVpnPSVmLd84uMZiWEs=
 github.com/Masterminds/goutils v1.1.0/go.mod h1:8cTjp+g8YejhMuvIA5y2vz3BpJxksy863GQaJW2MFNU=
 github.com/Masterminds/goutils v1.1.1 h1:5nUrii3FMTL5diU80unEVvNevw1nH4+ZV4DSLVJLSYI=
 github.com/Masterminds/goutils v1.1.1/go.mod h1:8cTjp+g8YejhMuvIA5y2vz3BpJxksy863GQaJW2MFNU=
