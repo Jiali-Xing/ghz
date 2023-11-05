@@ -46,7 +46,7 @@ require (
 	github.com/Antonboom/nilnil v0.1.1 // indirect
 	github.com/BurntSushi/toml v1.1.0 // indirect
 	github.com/Djarvur/go-err113 v0.0.0-20210108212216-aea10b59be24 // indirect
-	github.com/Jiali-Xing/breakwater-grpc v0.0.0-20231102203441-3f8ebb4b58d6
+	github.com/Jiali-Xing/breakwater-grpc v0.0.0-20231105194110-b70291369d64
 	github.com/Masterminds/goutils v1.1.1 // indirect
 	github.com/Masterminds/semver v1.5.0 // indirect
 	github.com/Masterminds/semver/v3 v3.2.0 // indirect
