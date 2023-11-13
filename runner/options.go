@@ -21,6 +21,7 @@ import (
 	"google.golang.org/grpc/credentials"
 
 	bw "github.com/Jiali-Xing/breakwater-grpc/breakwater"
+	dagor "github.com/Jiali-Xing/dagor-grpc/dagor"
 	humanize "github.com/dustin/go-humanize"
 )
 
@@ -56,6 +57,7 @@ type RunConfig struct {
 	charonOptions    map[string]interface{}
 	method           string
 	bwParams         bw.BWParameters
+	dagorParams      dagor.DagorParam
 
 	// security settings
 	creds      credentials.TransportCredentials
@@ -412,6 +414,13 @@ func WithBreakwaterOptions(options bw.BWParameters) Option {
 	return func(o *RunConfig) error {
 		o.bwParams = options
 
+		return nil
+	}
+}
+
+func WithDagorOptions(options dagor.DagorParam) Option {
+	return func(o *RunConfig) error {
+		o.dagorParams = options
 		return nil
 	}
 }

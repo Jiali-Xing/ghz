@@ -28,6 +28,7 @@ import (
 	_ "google.golang.org/grpc/xds"
 
 	bw "github.com/Jiali-Xing/breakwater-grpc/breakwater"
+	dagor "github.com/Jiali-Xing/dagor-grpc/dagor"
 	"github.com/tgiannoukos/charon"
 )
 
@@ -370,6 +371,11 @@ func (b *Requester) newClientConn(withStatsHandler bool) (*grpc.ClientConn, erro
 		breakwater := bw.InitBreakwater(b.config.bwParams)
 		opts = append(opts,
 			grpc.WithUnaryInterceptor(breakwater.UnaryInterceptorClient),
+		)
+	} else if b.config.interceptor == "dagor" {
+		dagor := dagor.NewDagor(b.config.dagorParams)
+		opts = append(opts,
+			grpc.WithUnaryInterceptor(dagor.UnaryInterceptorClient),
 		)
 	}
 

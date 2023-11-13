@@ -1,10 +1,11 @@
 module github.com/Jiali-Xing/ghz
 
-go 1.21.0
+go 1.21.2
 
-toolchain go1.21.1
+toolchain go1.21.3
 
 require (
+	github.com/Jiali-Xing/dagor-grpc v0.0.0-20231113010450-59d3ee1200ca
 	github.com/Masterminds/sprig/v3 v3.2.3
 	github.com/alecthomas/kingpin v1.3.8-0.20191105203113-8c96d1c22481
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751
@@ -14,7 +15,7 @@ require (
 	github.com/gogo/protobuf v1.3.2
 	github.com/golang/protobuf v1.5.3
 	github.com/golangci/golangci-lint v1.43.0
-	github.com/google/uuid v1.3.0
+	github.com/google/uuid v1.3.1
 	github.com/jhump/protoreflect v1.9.0
 	github.com/jinzhu/configor v1.2.1
 	github.com/jinzhu/gorm v1.9.16
@@ -32,11 +33,11 @@ require (
 	golang.org/x/net v0.14.0
 	golang.org/x/sync v0.3.0
 	golang.org/x/tools v0.10.0
-	google.golang.org/grpc v1.58.2
+	google.golang.org/grpc v1.59.0
 	google.golang.org/protobuf v1.31.0
 )
 
-require google.golang.org/genproto/googleapis/api v0.0.0-20230726155614-23370e0ffb3e // indirect
+require google.golang.org/genproto/googleapis/api v0.0.0-20230822172742-b8732ec3820d // indirect
 
 require (
 	4d63.com/gochecknoglobals v0.1.0 // indirect
@@ -200,11 +201,11 @@ require (
 	golang.org/x/crypto v0.12.0 // indirect
 	golang.org/x/exp/typeparams v0.0.0-20220218215828-6cf2b201936e // indirect
 	golang.org/x/mod v0.11.0 // indirect
-	golang.org/x/oauth2 v0.10.0 // indirect
+	golang.org/x/oauth2 v0.11.0 // indirect
 	golang.org/x/sys v0.11.0 // indirect
 	golang.org/x/text v0.12.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
-	google.golang.org/genproto v0.0.0-20230803162519-f966b187b2e5 // indirect
+	google.golang.org/genproto v0.0.0-20230822172742-b8732ec3820d // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20230822172742-b8732ec3820d // indirect
 	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
 	gopkg.in/ini.v1 v1.66.4 // indirect
