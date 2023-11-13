@@ -373,7 +373,7 @@ func (b *Requester) newClientConn(withStatsHandler bool) (*grpc.ClientConn, erro
 			grpc.WithUnaryInterceptor(breakwater.UnaryInterceptorClient),
 		)
 	} else if b.config.interceptor == "dagor" {
-		dg := dagor.NewDagorNode(&b.config.dagorParams)
+		dg := dagor.NewDagorNode(b.config.dagorParams)
 		opts = append(opts,
 			grpc.WithUnaryInterceptor(dg.UnaryInterceptorClient),
 		)

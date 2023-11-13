@@ -5,7 +5,7 @@ go 1.21.2
 toolchain go1.21.3
 
 require (
-	github.com/Jiali-Xing/dagor-grpc v0.0.0-20231113010450-59d3ee1200ca
+	github.com/Jiali-Xing/dagor-grpc v0.0.0-20231113215430-5b337b8b178d
 	github.com/Masterminds/sprig/v3 v3.2.3
 	github.com/alecthomas/kingpin v1.3.8-0.20191105203113-8c96d1c22481
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751
