@@ -385,7 +385,7 @@ func WithRootCertificate(cert string) Option {
 // WithInterceptor(false)
 func WithInterceptor(interceptor string) Option {
 	return func(o *RunConfig) error {
-		if interceptor == "breakwaters" {
+		if interceptor == "breakwaters" || interceptor == "breakwaterd" {
 			interceptor = "breakwater"
 		}
 		o.interceptor = interceptor
