@@ -29,6 +29,7 @@ import (
 
 	bw "github.com/Jiali-Xing/breakwater-grpc/breakwater"
 	dagor "github.com/Jiali-Xing/dagor-grpc/dagor"
+	"github.com/Jiali-Xing/plain"
 	"github.com/tgiannoukos/charon"
 )
 
@@ -376,6 +377,10 @@ func (b *Requester) newClientConn(withStatsHandler bool) (*grpc.ClientConn, erro
 		dg := dagor.NewDagorNode(b.config.dagorParams)
 		opts = append(opts,
 			grpc.WithUnaryInterceptor(dg.UnaryInterceptorClient),
+		)
+	} else if b.config.interceptor == "plain" {
+		opts = append(opts,
+			grpc.WithUnaryInterceptor(plain.UnaryInterceptorEnduser),
 		)
 	}
 

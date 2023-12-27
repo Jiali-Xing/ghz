@@ -37,7 +37,10 @@ require (
 	google.golang.org/protobuf v1.31.0
 )
 
-require google.golang.org/genproto/googleapis/api v0.0.0-20230822172742-b8732ec3820d // indirect
+require (
+	github.com/Jiali-Xing/plain v0.0.0-20231227031519-3efd234a1e3a // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20230822172742-b8732ec3820d // indirect
+)
 
 require (
 	4d63.com/gochecknoglobals v0.1.0 // indirect

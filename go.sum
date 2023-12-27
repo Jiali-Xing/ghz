@@ -87,6 +87,10 @@ github.com/Jiali-Xing/dagor-grpc v0.0.0-20231113215430-5b337b8b178d h1:c3RvMjhZx
 github.com/Jiali-Xing/dagor-grpc v0.0.0-20231113215430-5b337b8b178d/go.mod h1:CcE4CFQVC6G8tNvB51InsTBDOEEExkZBYCmJP658HMw=
 github.com/Jiali-Xing/dagor-grpc v0.0.0-20231122202029-72a0d0408bad h1:SZ9xAnTc2HiR7S7XiVC10yltyijcTrnc4cyEps5Ap3M=
 github.com/Jiali-Xing/dagor-grpc v0.0.0-20231122202029-72a0d0408bad/go.mod h1:CcE4CFQVC6G8tNvB51InsTBDOEEExkZBYCmJP658HMw=
+github.com/Jiali-Xing/plain v0.0.0-20231227030048-6c2cf52a44a1 h1:kTQVe07+CYRDgTfBg1KNQEGO1mqjiL9t82aoC4dV5+U=
+github.com/Jiali-Xing/plain v0.0.0-20231227030048-6c2cf52a44a1/go.mod h1:cLsB5MKPJGAapvCTWN86qCakWP74kUvIIZcIkEpFHp4=
+github.com/Jiali-Xing/plain v0.0.0-20231227031519-3efd234a1e3a h1:32Q6emE0+JIH38SzUKJMynZHEd4P3dxO8C1d7o/rRKw=
+github.com/Jiali-Xing/plain v0.0.0-20231227031519-3efd234a1e3a/go.mod h1:Zn5ZkJmbhoVVgYMaACaT4c8mByeJTolYzGZzKKNZ9vw=
 github.com/Masterminds/goutils v1.1.0/go.mod h1:8cTjp+g8YejhMuvIA5y2vz3BpJxksy863GQaJW2MFNU=
 github.com/Masterminds/goutils v1.1.1 h1:5nUrii3FMTL5diU80unEVvNevw1nH4+ZV4DSLVJLSYI=
 github.com/Masterminds/goutils v1.1.1/go.mod h1:8cTjp+g8YejhMuvIA5y2vz3BpJxksy863GQaJW2MFNU=
