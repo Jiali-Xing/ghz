@@ -81,14 +81,8 @@ github.com/Djarvur/go-err113 v0.0.0-20210108212216-aea10b59be24 h1:sHglBQTwgx+rW
 github.com/Djarvur/go-err113 v0.0.0-20210108212216-aea10b59be24/go.mod h1:4UJr5HIiMZrwgkSPdsjy2uOQExX/WEILpIrO9UPGuXs=
 github.com/Jiali-Xing/breakwater-grpc v0.0.0-20231105194110-b70291369d64 h1:D3Zay0+T37Lb7UlYkWwyQ6Txuh5gJD0CjnI7Sjmtvas=
 github.com/Jiali-Xing/breakwater-grpc v0.0.0-20231105194110-b70291369d64/go.mod h1:SUTpZJP1Z/4pgNXPURHzgXkElVpnPSVmLd84uMZiWEs=
-github.com/Jiali-Xing/dagor-grpc v0.0.0-20231113010450-59d3ee1200ca h1:eV4OWCINkY50W8SyOlnrf74scU6eh/XWIAFojJPJbH4=
-github.com/Jiali-Xing/dagor-grpc v0.0.0-20231113010450-59d3ee1200ca/go.mod h1:CcE4CFQVC6G8tNvB51InsTBDOEEExkZBYCmJP658HMw=
-github.com/Jiali-Xing/dagor-grpc v0.0.0-20231113215430-5b337b8b178d h1:c3RvMjhZxjHALldd94KfmUBXM3iu3O/zeF+aQhVdtQE=
-github.com/Jiali-Xing/dagor-grpc v0.0.0-20231113215430-5b337b8b178d/go.mod h1:CcE4CFQVC6G8tNvB51InsTBDOEEExkZBYCmJP658HMw=
 github.com/Jiali-Xing/dagor-grpc v0.0.0-20231122202029-72a0d0408bad h1:SZ9xAnTc2HiR7S7XiVC10yltyijcTrnc4cyEps5Ap3M=
 github.com/Jiali-Xing/dagor-grpc v0.0.0-20231122202029-72a0d0408bad/go.mod h1:CcE4CFQVC6G8tNvB51InsTBDOEEExkZBYCmJP658HMw=
-github.com/Jiali-Xing/plain v0.0.0-20231227030048-6c2cf52a44a1 h1:kTQVe07+CYRDgTfBg1KNQEGO1mqjiL9t82aoC4dV5+U=
-github.com/Jiali-Xing/plain v0.0.0-20231227030048-6c2cf52a44a1/go.mod h1:cLsB5MKPJGAapvCTWN86qCakWP74kUvIIZcIkEpFHp4=
 github.com/Jiali-Xing/plain v0.0.0-20231227031519-3efd234a1e3a h1:32Q6emE0+JIH38SzUKJMynZHEd4P3dxO8C1d7o/rRKw=
 github.com/Jiali-Xing/plain v0.0.0-20231227031519-3efd234a1e3a/go.mod h1:Zn5ZkJmbhoVVgYMaACaT4c8mByeJTolYzGZzKKNZ9vw=
 github.com/Masterminds/goutils v1.1.0/go.mod h1:8cTjp+g8YejhMuvIA5y2vz3BpJxksy863GQaJW2MFNU=

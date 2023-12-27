@@ -6,6 +6,7 @@ toolchain go1.21.3
 
 require (
 	github.com/Jiali-Xing/dagor-grpc v0.0.0-20231122202029-72a0d0408bad
+	github.com/Jiali-Xing/plain v0.0.0-20231227031519-3efd234a1e3a
 	github.com/Masterminds/sprig/v3 v3.2.3
 	github.com/alecthomas/kingpin v1.3.8-0.20191105203113-8c96d1c22481
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751
@@ -37,10 +38,7 @@ require (
 	google.golang.org/protobuf v1.31.0
 )
 
-require (
-	github.com/Jiali-Xing/plain v0.0.0-20231227031519-3efd234a1e3a // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20230822172742-b8732ec3820d // indirect
-)
+require google.golang.org/genproto/googleapis/api v0.0.0-20230822172742-b8732ec3820d // indirect
 
 require (
 	4d63.com/gochecknoglobals v0.1.0 // indirect
