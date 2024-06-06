@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestConstantPacer(t *testing.T) {
+func TestExponentialPacer(t *testing.T) {
 	for _, tc := range []struct {
 		freq    uint64
 		max     uint64
@@ -125,14 +125,14 @@ func TestConstantPacer(t *testing.T) {
 			max:     7,
 		},
 	} {
-		cp := ConstantPacer{Freq: tc.freq, Max: tc.max}
+		cp := ExponentialPacer{Freq: tc.freq, Max: tc.max}
 		wait, stop := cp.Pace(tc.elapsed, tc.hits)
 		assert.Equal(t, tc.wait, wait)
 		assert.Equal(t, tc.stop, stop)
 	}
 }
 
-func TestConstantPacer_Rate(t *testing.T) {
+func TestExponentialPacer_Rate(t *testing.T) {
 	for _, tc := range []struct {
 		freq    uint64
 		elapsed time.Duration
@@ -149,14 +149,14 @@ func TestConstantPacer_Rate(t *testing.T) {
 			rate:    500.0,
 		},
 	} {
-		cp := ConstantPacer{Freq: tc.freq}
+		cp := ExponentialPacer{Freq: tc.freq}
 		actual, expected := cp.Rate(tc.elapsed), tc.rate
 		assert.True(t, floatEqual(actual, expected), "%s.Rate(_): actual %f, expected %f", cp, actual, expected)
 	}
 }
 
-func TestConstantPacer_String(t *testing.T) {
-	cp := ConstantPacer{Freq: 5}
+func TestExponentialPacer_String(t *testing.T) {
+	cp := ExponentialPacer{Freq: 5}
 	actual := cp.String()
 	assert.Equal(t, "Constant{5 hits / 1s}", actual)
 }
@@ -399,9 +399,9 @@ func TestLinearPacer(t *testing.T) {
 	} {
 		t.Run(strconv.Itoa(ti), func(t *testing.T) {
 			p := LinearPacer{
-				Start:        ConstantPacer{Freq: tt.start},
+				Start:        ExponentialPacer{Freq: tt.start},
 				Slope:        tt.slope,
-				Stop:         ConstantPacer{Freq: tt.stopRate},
+				Stop:         ExponentialPacer{Freq: tt.stopRate},
 				LoadDuration: tt.stopDuration,
 			}
 
@@ -419,7 +419,7 @@ func TestStepPacer_hits(t *testing.T) {
 
 	// TODO improve this to have different pacer params
 	p := StepPacer{
-		Start:        ConstantPacer{Freq: 10},
+		Start:        ExponentialPacer{Freq: 10},
 		StepDuration: 4 * time.Second,
 		Step:         10,
 	}
@@ -748,9 +748,9 @@ func TestStepPacer_Rate(t *testing.T) {
 		},
 	} {
 		p := StepPacer{
-			Start: ConstantPacer{Freq: tc.start},
+			Start: ExponentialPacer{Freq: tc.start},
 			Step:  tc.step, StepDuration: tc.stepDuration,
-			LoadDuration: tc.stopDuration, Stop: ConstantPacer{Freq: tc.stop}}
+			LoadDuration: tc.stopDuration, Stop: ExponentialPacer{Freq: tc.stop}}
 
 		actual := p.Rate(tc.elapsed)
 		expected := tc.rate
@@ -1028,10 +1028,10 @@ func TestStepPacer(t *testing.T) {
 	} {
 		t.Run(strconv.Itoa(ti), func(t *testing.T) {
 			p := StepPacer{
-				Start: ConstantPacer{Freq: tc.start, Max: tc.max},
+				Start: ExponentialPacer{Freq: tc.start, Max: tc.max},
 				Max:   tc.max,
 				Step:  tc.step, StepDuration: tc.stepDuration,
-				LoadDuration: tc.stopDuration, Stop: ConstantPacer{Freq: tc.stop}}
+				LoadDuration: tc.stopDuration, Stop: ExponentialPacer{Freq: tc.stop}}
 
 			wait, stop := p.Pace(tc.elapsed, tc.hits)
 
@@ -1043,10 +1043,10 @@ func TestStepPacer(t *testing.T) {
 
 func TestStepPacer_String(t *testing.T) {
 	p := StepPacer{
-		Start: ConstantPacer{Freq: 5, Max: 100},
+		Start: ExponentialPacer{Freq: 5, Max: 100},
 		Max:   100,
 		Step:  2, StepDuration: 5 * time.Second,
-		LoadDuration: 25 * time.Second, Stop: ConstantPacer{Freq: 25}}
+		LoadDuration: 25 * time.Second, Stop: ExponentialPacer{Freq: 25}}
 
 	actual := p.String()
 	assert.Equal(t, "Step{Step: 2 hits / 5s}", actual)

@@ -586,23 +586,23 @@ func createPacer(config *RunConfig) load.Pacer {
 	switch config.loadSchedule {
 	case ScheduleLine:
 		p = &load.LinearPacer{
-			Start:        load.ConstantPacer{Freq: uint64(config.loadStart), Max: uint64(config.n)},
+			Start:        load.ExponentialPacer{Freq: uint64(config.loadStart), Max: uint64(config.n)},
 			Slope:        int64(config.loadStep),
-			Stop:         load.ConstantPacer{Freq: uint64(config.loadEnd), Max: uint64(config.n)},
+			Stop:         load.ExponentialPacer{Freq: uint64(config.loadEnd), Max: uint64(config.n)},
 			LoadDuration: config.loadDuration,
 			Max:          uint64(config.n),
 		}
 	case ScheduleStep:
 		p = &load.StepPacer{
-			Start:        load.ConstantPacer{Freq: uint64(config.loadStart), Max: uint64(config.n)},
+			Start:        load.ExponentialPacer{Freq: uint64(config.loadStart), Max: uint64(config.n)},
 			Step:         int64(config.loadStep),
-			Stop:         load.ConstantPacer{Freq: uint64(config.loadEnd), Max: uint64(config.n)},
+			Stop:         load.ExponentialPacer{Freq: uint64(config.loadEnd), Max: uint64(config.n)},
 			LoadDuration: config.loadDuration,
 			StepDuration: config.loadStepDuration,
 			Max:          uint64(config.n),
 		}
 	default:
-		p = &load.ConstantPacer{Freq: uint64(config.rps), Max: uint64(config.n)}
+		p = &load.ExponentialPacer{Freq: uint64(config.rps), Max: uint64(config.n)}
 	}
 
 	return p

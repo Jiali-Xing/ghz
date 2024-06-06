@@ -79,13 +79,20 @@ func (cp *ConstantPacer) hitsPerNs() float64 {
 
 // ExponentialPacer defines an exponential rate of hits.
 type ExponentialPacer struct {
-	Lambda float64 // Rate parameter λ for the exponential distribution
+	Freq   uint64  // Frequency of hits per second
 	Max    uint64  // Optional maximum allowed hits
+	Lambda float64 // Derived rate parameter λ for the exponential distribution
+	once   sync.Once
 }
 
 // String returns a pretty-printed description of the ExponentialPacer's behaviour:
 func (ep *ExponentialPacer) String() string {
-	return fmt.Sprintf("Exponential{Lambda: %f}", ep.Lambda)
+	return fmt.Sprintf("Exponential{Freq: %d, Lambda: %f}", ep.Freq, ep.Lambda)
+}
+
+// initialize calculates Lambda from Freq
+func (ep *ExponentialPacer) initialize() {
+	ep.Lambda = float64(ep.Freq)
 }
 
 // Pace determines the length of time to sleep until the next hit is sent.
@@ -93,6 +100,8 @@ func (ep *ExponentialPacer) Pace(elapsed time.Duration, hits uint64) (time.Durat
 	if ep.Max > 0 && hits >= ep.Max {
 		return 0, true
 	}
+
+	ep.once.Do(ep.initialize)
 
 	interval := -math.Log(1-rand.Float64()) / ep.Lambda
 	wait := time.Duration(interval * float64(time.Second))
@@ -104,21 +113,22 @@ func (ep *ExponentialPacer) Pace(elapsed time.Duration, hits uint64) (time.Durat
 // at the given elapsed duration of an attack. Since it's exponential, the return
 // value is independent of the given elapsed duration.
 func (ep *ExponentialPacer) Rate(elapsed time.Duration) float64 {
+	ep.once.Do(ep.initialize)
 	return ep.Lambda
 }
 
 // hitsPerNs returns the rate in fractional hits per nanosecond.
 func (ep *ExponentialPacer) hitsPerNs() float64 {
-	return ep.Lambda / nano
+	return float64(ep.Freq) / nano
 }
 
 // StepPacer paces an attack by starting at a given request rate
 // and increasing or decreasing with steps at a given step interval and duration.
 type StepPacer struct {
-	Start        ConstantPacer // Constant start rate
+	Start        ExponentialPacer
 	Step         int64         // Step value
 	StepDuration time.Duration // Step duration
-	Stop         ConstantPacer // Optional constant stop value
+	Stop         ExponentialPacer
 	LoadDuration time.Duration // Optional maximum load duration
 	Max          uint64        // Optional maximum allowed hits
 
@@ -297,11 +307,11 @@ func (p *StepPacer) String() string {
 // LinearPacer paces the hit rate by starting at a given request rate
 // and increasing linearly with the given slope at 1s interval.
 type LinearPacer struct {
-	Start        ConstantPacer // Constant start rate
-	Slope        int64         // Slope value to change the rate
-	Stop         ConstantPacer // Constant stop rate
-	LoadDuration time.Duration // Total maximum load duration
-	Max          uint64        // Maximum number of hits
+	Start        ExponentialPacer // Initial rate
+	Slope        int64            // Slope value to change the rate
+	Stop         ExponentialPacer // Constant stop rate
+	LoadDuration time.Duration    // Total maximum load duration
+	Max          uint64           // Maximum number of hits
 
 	once sync.Once
 	sp   StepPacer
