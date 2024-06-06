@@ -3,6 +3,7 @@ package load
 import (
 	"fmt"
 	"math"
+	"math/rand"
 	"sync"
 	"time"
 )
@@ -30,7 +31,8 @@ type ConstantPacer struct {
 }
 
 // String returns a pretty-printed description of the ConstantPacer's behaviour:
-//   ConstantPacer{Freq: 1} => Constant{1 hits / 1s}
+//
+//	ConstantPacer{Freq: 1} => Constant{1 hits / 1s}
 func (cp *ConstantPacer) String() string {
 	return fmt.Sprintf("Constant{%d hits / 1s}", cp.Freq)
 }
@@ -73,6 +75,41 @@ func (cp *ConstantPacer) Rate(elapsed time.Duration) float64 {
 // hitsPerNs returns the rate in fractional hits per nanosecond.
 func (cp *ConstantPacer) hitsPerNs() float64 {
 	return float64(cp.Freq) / nano
+}
+
+// ExponentialPacer defines an exponential rate of hits.
+type ExponentialPacer struct {
+	Lambda float64 // Rate parameter λ for the exponential distribution
+	Max    uint64  // Optional maximum allowed hits
+}
+
+// String returns a pretty-printed description of the ExponentialPacer's behaviour:
+func (ep *ExponentialPacer) String() string {
+	return fmt.Sprintf("Exponential{Lambda: %f}", ep.Lambda)
+}
+
+// Pace determines the length of time to sleep until the next hit is sent.
+func (ep *ExponentialPacer) Pace(elapsed time.Duration, hits uint64) (time.Duration, bool) {
+	if ep.Max > 0 && hits >= ep.Max {
+		return 0, true
+	}
+
+	interval := -math.Log(1-rand.Float64()) / ep.Lambda
+	wait := time.Duration(interval * float64(time.Second))
+
+	return wait, false
+}
+
+// Rate returns an ExponentialPacer's instantaneous hit rate (i.e. requests per second)
+// at the given elapsed duration of an attack. Since it's exponential, the return
+// value is independent of the given elapsed duration.
+func (ep *ExponentialPacer) Rate(elapsed time.Duration) float64 {
+	return ep.Lambda
+}
+
+// hitsPerNs returns the rate in fractional hits per nanosecond.
+func (ep *ExponentialPacer) hitsPerNs() float64 {
+	return ep.Lambda / nano
 }
 
 // StepPacer paces an attack by starting at a given request rate
@@ -251,7 +288,8 @@ func (p *StepPacer) hits(t time.Duration) float64 {
 }
 
 // String returns a pretty-printed description of the StepPacer's behaviour:
-//   StepPacer{Step: 1, StepDuration: 5s} => Step{Step:1 hits / 5s}
+//
+//	StepPacer{Step: 1, StepDuration: 5s} => Step{Step:1 hits / 5s}
 func (p *StepPacer) String() string {
 	return fmt.Sprintf("Step{Step: %d hits / %s}", p.Step, p.StepDuration.String())
 }
@@ -313,7 +351,8 @@ func (p *LinearPacer) Rate(elapsed time.Duration) float64 {
 }
 
 // String returns a pretty-printed description of the LinearPacer's behaviour:
-//   LinearPacer{Slope: 1} => Linear{1 hits / 1s}
+//
+//	LinearPacer{Slope: 1} => Linear{1 hits / 1s}
 func (p *LinearPacer) String() string {
 	return fmt.Sprintf("Linear{%d hits / 1s}", p.Slope)
 }
