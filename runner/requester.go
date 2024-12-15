@@ -30,7 +30,7 @@ import (
 	bw "github.com/Jiali-Xing/breakwater-grpc/breakwater"
 	dagor "github.com/Jiali-Xing/dagor-grpc/dagor"
 	"github.com/Jiali-Xing/plain"
-	"github.com/tgiannoukos/charon"
+	"github.com/Jiali-Xing/rajomon"
 )
 
 // Max size of the buffer of result channel.

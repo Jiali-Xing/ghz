@@ -7,6 +7,7 @@ toolchain go1.21.3
 require (
 	github.com/Jiali-Xing/dagor-grpc v0.0.0-20231122202029-72a0d0408bad
 	github.com/Jiali-Xing/plain v0.0.0-20231227034046-b79fd58cb753
+	github.com/Jiali-Xing/rajomon v0.0.0-20241215185722-68f8bdb8c226
 	github.com/Masterminds/sprig/v3 v3.2.3
 	github.com/alecthomas/kingpin v1.3.8-0.20191105203113-8c96d1c22481
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751
@@ -28,7 +29,6 @@ require (
 	github.com/prometheus/common v0.32.1
 	github.com/rakyll/statik v0.1.7
 	github.com/stretchr/testify v1.8.3
-	github.com/tgiannoukos/charon v0.0.0-20231016025447-7c2c4e5003cd
 	go.uber.org/multierr v1.9.0
 	go.uber.org/zap v1.24.0
 	golang.org/x/net v0.19.0
@@ -38,7 +38,10 @@ require (
 	google.golang.org/protobuf v1.32.0
 )
 
-require google.golang.org/genproto/googleapis/api v0.0.0-20231120223509-83a465c0220f // indirect
+require (
+	github.com/bytedance/gopkg v0.0.0-20230728082804-614d0af6619b // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20231120223509-83a465c0220f // indirect
+)
 
 require (
 	4d63.com/gochecknoglobals v0.1.0 // indirect
