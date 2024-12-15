@@ -53,8 +53,8 @@ type RunConfig struct {
 
 	// Interceptors for overload control
 	interceptor      string
-	charonEntrypoint string
-	charonOptions    map[string]interface{}
+	rajomonEntrypoint string
+	rajomonOptions    map[string]interface{}
 	method           string
 	bwParams         bw.BWParameters
 	dagorParams      dagor.DagorParam
@@ -380,7 +380,7 @@ func WithRootCertificate(cert string) Option {
 	}
 }
 
-// WithInterceptor is true if we decide to use charon on client side as the interceptor.
+// WithInterceptor is true if we decide to use rajomon on client side as the interceptor.
 //
 // WithInterceptor(false)
 func WithInterceptor(interceptor string) Option {
@@ -395,18 +395,18 @@ func WithInterceptor(interceptor string) Option {
 
 func WithInterceptorEntry(entry string) Option {
 	return func(o *RunConfig) error {
-		o.charonEntrypoint = entry
+		o.rajomonEntrypoint = entry
 
 		return nil
 	}
 }
 
-// WithCharonOptions specifies the charon options for the client
+// WithRajomonOptions specifies the rajomon options for the client
 //
-//	WithCharonOptions(map[string]interface{}{"key": "value"})
-func WithCharonOptions(options map[string]interface{}) Option {
+//	WithRajomonOptions(map[string]interface{}{"key": "value"})
+func WithRajomonOptions(options map[string]interface{}) Option {
 	return func(o *RunConfig) error {
-		o.charonOptions = options
+		o.rajomonOptions = options
 
 		return nil
 	}

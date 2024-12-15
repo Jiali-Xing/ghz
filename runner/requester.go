@@ -353,16 +353,16 @@ func (b *Requester) newClientConn(withStatsHandler bool) (*grpc.ClientConn, erro
 		opts = append(opts, grpc.WithDefaultServiceConfig(grpcServiceConfig))
 	}
 
-	if b.config.interceptor == "charon" {
+	if b.config.interceptor == "rajomon" {
 		callGraph := make(map[string][]string)
 		// call graph point to the entrance point of the call graph
 		methodName := b.config.method
-		callGraph[methodName] = []string{b.config.charonEntrypoint}
+		callGraph[methodName] = []string{b.config.rajomonEntrypoint}
 
-		priceTable := charon.NewCharon(
+		priceTable := rajomon.NewRajomon(
 			"client",
 			callGraph,
-			b.config.charonOptions,
+			b.config.rajomonOptions,
 		)
 
 		opts = append(opts,
