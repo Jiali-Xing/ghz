@@ -7,7 +7,7 @@ toolchain go1.21.3
 require (
 	github.com/Jiali-Xing/dagor-grpc v0.0.0-20231122202029-72a0d0408bad
 	github.com/Jiali-Xing/plain v0.0.0-20231227034046-b79fd58cb753
-	github.com/Jiali-Xing/rajomon v0.0.0-20241215185722-68f8bdb8c226
+	github.com/Jiali-Xing/rajomon v0.0.0-20241217004323-1170cd438980
 	github.com/Masterminds/sprig/v3 v3.2.3
 	github.com/alecthomas/kingpin v1.3.8-0.20191105203113-8c96d1c22481
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751

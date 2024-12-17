@@ -87,6 +87,8 @@ github.com/Jiali-Xing/plain v0.0.0-20231227034046-b79fd58cb753 h1:nmRXE8JFRClfK+
 github.com/Jiali-Xing/plain v0.0.0-20231227034046-b79fd58cb753/go.mod h1:Zn5ZkJmbhoVVgYMaACaT4c8mByeJTolYzGZzKKNZ9vw=
 github.com/Jiali-Xing/rajomon v0.0.0-20241215185722-68f8bdb8c226 h1:5SFfCsdlz8Avjd2xs7LbwGqXSN6XC9HXPv77jtwdd0k=
 github.com/Jiali-Xing/rajomon v0.0.0-20241215185722-68f8bdb8c226/go.mod h1:+nVz/g+ACcRrhxMMPucePQ6IPXtKdJ56tkXqYIK+l+I=
+github.com/Jiali-Xing/rajomon v0.0.0-20241217004323-1170cd438980 h1:Oc5ZaV5sxcLJ3BSmb/hjkWVZor1zkHz9I6nbPeIk25w=
+github.com/Jiali-Xing/rajomon v0.0.0-20241217004323-1170cd438980/go.mod h1:+nVz/g+ACcRrhxMMPucePQ6IPXtKdJ56tkXqYIK+l+I=
 github.com/Masterminds/goutils v1.1.0/go.mod h1:8cTjp+g8YejhMuvIA5y2vz3BpJxksy863GQaJW2MFNU=
 github.com/Masterminds/goutils v1.1.1 h1:5nUrii3FMTL5diU80unEVvNevw1nH4+ZV4DSLVJLSYI=
 github.com/Masterminds/goutils v1.1.1/go.mod h1:8cTjp+g8YejhMuvIA5y2vz3BpJxksy863GQaJW2MFNU=
